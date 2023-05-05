@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navbar' %>
+    </header>
+
+    <main class="px-6 container mx-auto">
+
+      <%= yield %>
+    </main>
+
+    <%= any_login_here if defined?(AnyLogin)%>
   </body>
 </html>
