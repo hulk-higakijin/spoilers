@@ -27,7 +27,7 @@
     <div class="col-span-3 border border-primary">
       <div class="flex flex-col">
         <% @anime.discussions.each do |discussion| %>
-          <%= link_to("#", class: "border-b border-primary p-2 flex gap-2") do %>
+          <%= link_to(anime_discussion_path(@anime, discussion), class: "border-b border-primary p-2 flex gap-2") do %>
             <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
             <div class="flex flex-col w-full">
               <div class="text-sm flex">
