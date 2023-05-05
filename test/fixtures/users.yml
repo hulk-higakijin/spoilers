@@ -2,6 +2,7 @@ higakijin:
   name: higakijin
   email: hm385.chejptks@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  admin: true
 tellstyle:
   name: tellstyle
   email: tellstyle@gmail.com
