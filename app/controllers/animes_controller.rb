@@ -1,5 +1,5 @@
 class AnimesController < ApplicationController
-  before_action :set_anime, only: %i[ show edit update destroy ]
+  before_action :set_anime, only: %i[show edit update destroy]
 
   # GET /animes or /animes.json
   def index
@@ -7,8 +7,7 @@ class AnimesController < ApplicationController
   end
 
   # GET /animes/1 or /animes/1.json
-  def show
-  end
+  def show; end
 
   # GET /animes/new
   def new
@@ -16,8 +15,7 @@ class AnimesController < ApplicationController
   end
 
   # GET /animes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /animes or /animes.json
   def create
@@ -25,7 +23,7 @@ class AnimesController < ApplicationController
 
     respond_to do |format|
       if @anime.save
-        format.html { redirect_to anime_url(@anime), notice: "Anime was successfully created." }
+        format.html { redirect_to anime_url(@anime) }
         format.json { render :show, status: :created, location: @anime }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class AnimesController < ApplicationController
   def update
     respond_to do |format|
       if @anime.update(anime_params)
-        format.html { redirect_to anime_url(@anime), notice: "Anime was successfully updated." }
+        format.html { redirect_to anime_url(@anime) }
         format.json { render :show, status: :ok, location: @anime }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,12 +50,13 @@ class AnimesController < ApplicationController
     @anime.destroy
 
     respond_to do |format|
-      format.html { redirect_to animes_url, notice: "Anime was successfully destroyed." }
+      format.html { redirect_to animes_url }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_anime
       @anime = Anime.find(params[:id])
