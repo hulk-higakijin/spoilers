@@ -1,3 +1,19 @@
-<section>
-  <h2><%= @discussion.title %></h2>
+<section class="grid grid-cols-7 gap-4 border border-primary px-4 py-2">
+  <%= image_tag(@anime.image_url) %>
+  <div class="col-span-6 flex flex-col gap-4">
+    <div class="flex">
+      <%= @anime.title %>
+      <p class="ml-auto"><%= l(@discussion.created_at, format: :long) %></p>
+    </div>
+    <div class="flex h-full">
+      <p class="font-bold text-2xl text-primary-focus">
+        <%= @discussion.title %>
+      </p>
+      <%= link_to("#", class: "flex gap-2 mt-auto ml-auto hover:underline") do %>
+        <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
+        <p class="my-auto"><%= @discussion.user.name %></p>
+      <% end %>
+    </div>
+  </div>
 </section>
+

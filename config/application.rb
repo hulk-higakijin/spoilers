@@ -37,5 +37,6 @@ module Spoilers
       g.system_tests = nil
     end
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
   end
 end
