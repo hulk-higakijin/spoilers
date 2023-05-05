@@ -1,9 +1,9 @@
-<% if is_my_comment %>
+<% if false %>
   <div class="chat chat-end">
     <div class="chat-image avatar"></div>
-    <div class="chat-bubble"><%= content %></div>
+    <div class="chat-bubble chat-bubble-primary"><%= comment.content %></div>
     <div class="chat-footer opacity-50 text-xs">
-      12:46
+      <%= l(comment.created_at, format: :only_time) %>
     </div>
   </div>
 <% else %>
@@ -14,11 +14,11 @@
       </div>
     </div>
     <div class="chat-header">
-      higakijin
+      <%= comment.user.name %>
     </div>
-    <div class="chat-bubble"><%= content %></div>
+    <div class="chat-bubble"><%= comment.content %></div>
     <div class="chat-footer opacity-50 text-xs">
-      12:31
+      <%= l(comment.created_at, format: :only_time) %>
     </div>
   </div>
 <% end %>

@@ -18,12 +18,9 @@
 </section>
 
 <section class="p-2">
-  <div>
-    <%= render("chats/bubble", is_my_comment: false, content: "五月マジで可愛い") %>
-    <%= render("chats/bubble", is_my_comment: true, content: "他も負けてないが。") %>
-    <%= render("chats/bubble", is_my_comment: false, content: "五月マジで可愛い") %>
-    <%= render("chats/bubble", is_my_comment: false, content: "五月マジで可愛い") %>
-  </div>
+  <% @discussion.comments.each do |comment| %>
+    <%= render("chats/bubble", comment: comment) %>
+  <% end %>
 </section>
 
 <section class="max-w-2xl mx-auto py-8">
