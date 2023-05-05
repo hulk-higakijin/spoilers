@@ -1,0 +1,24 @@
+<% if is_my_comment %>
+  <div class="chat chat-end">
+    <div class="chat-image avatar"></div>
+    <div class="chat-bubble"><%= content %></div>
+    <div class="chat-footer opacity-50 text-xs">
+      12:46
+    </div>
+  </div>
+<% else %>
+  <div class="chat chat-start">
+    <div class="chat-image avatar">
+      <div class="w-10 rounded-full">
+        <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
+      </div>
+    </div>
+    <div class="chat-header">
+      higakijin
+    </div>
+    <div class="chat-bubble"><%= content %></div>
+    <div class="chat-footer opacity-50 text-xs">
+      12:31
+    </div>
+  </div>
+<% end %>
