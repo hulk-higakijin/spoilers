@@ -1,4 +1,5 @@
 class DiscussionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_anime
   before_action :set_discussion, only: [:show]
 
