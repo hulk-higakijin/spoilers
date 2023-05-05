@@ -1,10 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<section class="flex flex-col gap-4">
+  <h1 class="border border-primary text-xl font-bold px-4 py-2">
+    <%= @anime.title %>
+  </h1>
 
-<%= render @anime %>
+  <div class="grid grid-cols-5 gap-4">
+    <div class="col-span-2 border border-primary p-4">
+      <%= image_tag(@anime.image_url) %>
+      <div class="p-2">
+        <div class="flex gap-4 justify-center">
+          <b>原作</b>
+          <p>春場ねぎ</p>
+        </div>
+        <div class="flex gap-4 justify-center">
+          <b class="whitespace-nowrap">声優</b>
+          <div>
+            <p>花澤香奈</p>
+            <p>竹達彩菜</p>
+            <p>伊藤美来</p>
+            <p>佐倉綾音</p>
+            <p>水瀬いのり</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div>
-  <%= link_to "Edit this anime", edit_anime_path(@anime) %> |
-  <%= link_to "Back to animes", animes_path %>
+    <div class="col-span-3 border border-primary">
 
-  <%= button_to "Destroy this anime", @anime, method: :delete %>
-</div>
+    </div>
+  </div>
+</section>

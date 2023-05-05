@@ -7,6 +7,6 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   daisyui: {
-    themes: ["light"]
+    themes: ["winter"]
   }
 }
