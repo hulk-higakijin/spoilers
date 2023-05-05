@@ -1,11 +1,11 @@
-<section class="grid grid-cols-7 gap-4 border border-primary px-4 py-2">
-  <%= image_tag(@anime.image_url) %>
+<section class="md:grid grid-cols-7 gap-4 border border-primary px-4 py-2">
+  <%= image_tag(@anime.image_url, class: "hidden md:block") %>
   <div class="col-span-6 flex flex-col gap-4">
-    <div class="flex">
+    <div class="md:flex">
       <%= @anime.title %>
       <p class="ml-auto"><%= l(@discussion.created_at, format: :long) %></p>
     </div>
-    <div class="flex h-full">
+    <div class="md:flex h-full">
       <p class="font-bold text-2xl text-primary-focus">
         <%= @discussion.title %>
       </p>
