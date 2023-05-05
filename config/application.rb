@@ -36,5 +36,6 @@ module Spoilers
       g.jbuilder false
       g.system_tests = nil
     end
+    config.i18n.default_locale = :ja
   end
 end
