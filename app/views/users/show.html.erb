@@ -1,28 +1,20 @@
 <div class="flex flex-col gap-4">
   <h1 class="font-bold text-2xl"><%= @user.name %></h1>
-  <div class="grid grid-cols-4 gap-4">
+  <div class="grid md:grid-cols-4 gap-4">
     <div class="border border-primary p-2 w-full h-fit">
       <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg") %>
     </div>
     <div class="col-span-3">
       <div class="flex">
-        <p class="px-4 py-2 border border-primary font-bold bg-primary-content">スレッド</p>
-        <p class="px-4 py-2 border border-primary font-bold">コメント</p>
+        <%= link_to("スレッド", user_path(@user, display: "thread"), class: "px-4 py-2 border border-primary font-bold bg-primary-content") %>
+        <%= link_to("コメント", user_path(@user, display: "comment"), class: "px-4 py-2 border border-primary font-bold") %>
       </div>
       <div class="border border-primary">
-        <% @discussions.each do |discussion| %>
-          <%= link_to(anime_discussion_path(discussion.anime, discussion), class: "grid grid-cols-7 gap-4 border-b border-primary p-2 hover:bg-primary-content") do %>
-            <%= image_tag(discussion.anime.image_url) %>
-            <div class="col-span-6 flex">
-              <p class="font-bold my-auto text-primary-focus"><%= discussion.title %></p>
-              <div class="ml-auto flex flex-col">
-                <p><%= l(discussion.created_at, format: :long) %></p>
-                <p class="ml-auto mt-auto">コメント：<%= discussion.comments.count %>件</p>
-              </div>
-            </div>
-          <% end %>
+        <% if params[:display] == "thread" || params[:display].nil? %>
+          <%= render("discussions/items", discussions: @discussions) %>
+        <% elsif params[:display] == "comment" %>
+          <%= render("comments/items", comments: @comments) %>
         <% end %>
-        <%= paginate(@discussions) %>
       </div>
     </div>
   </div>
