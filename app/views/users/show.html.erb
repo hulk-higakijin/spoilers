@@ -1,1 +1,29 @@
-<%= @user.name %>
+<div class="flex flex-col gap-4">
+  <h1 class="font-bold text-2xl"><%= @user.name %></h1>
+  <div class="grid grid-cols-4 gap-4">
+    <div class="border border-primary p-2 w-full h-fit">
+      <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg") %>
+    </div>
+    <div class="col-span-3">
+      <div class="flex">
+        <p class="px-4 py-2 border border-primary font-bold bg-primary-content">スレッド</p>
+        <p class="px-4 py-2 border border-primary font-bold">コメント</p>
+      </div>
+      <div class="border border-primary">
+        <% @user.discussions.each do |discussion| %>
+          <%= link_to(anime_discussion_path(discussion.anime, discussion), class: "grid grid-cols-7 gap-4 border-b border-primary p-2 hover:bg-primary-content") do %>
+            <%= image_tag(discussion.anime.image_url) %>
+            <div class="col-span-6 flex">
+              <p class="font-bold my-auto text-primary-focus"><%= discussion.title %></p>
+              <div class="ml-auto flex flex-col">
+                <p><%= l(discussion.created_at, format: :long) %></p>
+                <p class="ml-auto mt-auto">コメント：<%= discussion.comments.count %>件</p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+        1, 2, 3
+      </div>
+    </div>
+  </div>
+</div>
