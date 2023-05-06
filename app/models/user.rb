@@ -9,10 +9,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def display_avatar
-    if avatar.attached?
-      avatar
-    else
-      'https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg'
-    end
+    avatar.attached? ? avatar : default_image
+  end
+
+  def default_image
+    'https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg'
   end
 end
