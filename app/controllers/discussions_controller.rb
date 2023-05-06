@@ -4,7 +4,7 @@ class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show]
 
   def show
-    @new_comment = current_user.comments.new(discussion: @discussion)
+    @comment = current_user.comments.new(discussion: @discussion)
   end
 
   private
@@ -14,6 +14,6 @@ class DiscussionsController < ApplicationController
     end
 
     def set_discussion
-      @discussion = @anime.discussions.find(params[:id])
+      @discussion = @anime.discussions.includes(comments: :user).find(params[:id])
     end
 end

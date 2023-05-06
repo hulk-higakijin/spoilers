@@ -5,11 +5,9 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
 
-    if @comment.save
-      redirect_to anime_discussion_path(@discussion.anime, @discussion)
-    else
-      render 'discussions/show'
-    end
+    return unless @comment.save
+
+    redirect_to anime_discussion_path(@discussion.anime, @discussion)
   end
 
   private

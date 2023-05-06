@@ -24,7 +24,7 @@
 </section>
 
 <section class="max-w-2xl mx-auto py-8">
-  <%= form_with(model: [@anime, @discussion, @new_comment]) do |f| %>
-    <%= f.text_field(:content, class: "input input-bordered bg-gray-50 w-full", placeholder: "Input chat here.") %>
+  <%= form_with(model: [@anime, @discussion, @comment]) do |f| %>
+    <%= f.text_field(:content, class: "input input-bordered bg-gray-50 w-full", placeholder: "Input chat here (less than 100 characters).") %>
   <% end %>
 </section>
