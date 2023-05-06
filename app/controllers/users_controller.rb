@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[show]
 
-  def show; end
+  def show
+    @discussions = @user.discussions.page(params[:page])
+  end
 
   private
 
