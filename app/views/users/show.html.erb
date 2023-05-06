@@ -1,9 +1,15 @@
 <div class="flex flex-col gap-4">
   <h1 class="font-bold text-2xl"><%= @user.name %></h1>
   <div class="grid md:grid-cols-4 gap-4">
-    <div class="border border-primary p-2 w-full h-fit">
-      <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg") %>
+    <div class="flex flex-col gap-4">
+      <div class="border border-primary p-2 w-full h-fit">
+        <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg") %>
+      </div>
+      <% if current_user.id == @user.id %>
+        <%= link_to("Settings", edit_user_path(@user), class: "btn btn-primary btn-wide w-full") %>
+      <% end %>
     </div>
+
     <div class="col-span-3">
       <div class="flex">
         <%= link_to("スレッド", user_path(@user, display: "thread"), class: "px-4 py-2 border border-primary font-bold bg-primary-content") %>
