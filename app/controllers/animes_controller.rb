@@ -10,7 +10,7 @@ class AnimesController < ApplicationController
   private
 
     def set_anime
-      @anime = Anime.find(params[:id])
+      @anime = Anime.includes(discussions: :user).find(params[:id])
     end
 
     def anime_params

@@ -4,15 +4,13 @@ class UsersController < ApplicationController
   before_action :need_permission, only: %i[edit update]
 
   def show
-    @discussions = @user.discussions.order(created_at: :desc).page(params[:page])
-    @comments = @user.comments.order(created_at: :desc).page(params[:page])
+    @discussions = @user.discussions.includes(:anime).order(created_at: :desc).page(params[:page])
+    @comments = @user.comments.includes(discussion: :anime).order(created_at: :desc).page(params[:page])
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
   private
 
