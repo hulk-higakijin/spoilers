@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_discussion
 
   def create
-    @comment = @discussion.comments.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
     if @comment.save
       redirect_to anime_discussion_path(@discussion.anime, @discussion)
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comments).permit(:content)
+      params.require(:comment).permit(:content).merge(discussion_id: @discussion.id)
     end
 
     def set_discussion

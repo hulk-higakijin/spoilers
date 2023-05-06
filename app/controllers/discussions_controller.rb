@@ -3,7 +3,9 @@ class DiscussionsController < ApplicationController
   before_action :set_anime
   before_action :set_discussion, only: [:show]
 
-  def show; end
+  def show
+    @new_comment = current_user.comments.new(discussion: @discussion)
+  end
 
   private
 
