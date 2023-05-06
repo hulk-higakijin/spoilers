@@ -1,0 +1,30 @@
+<section class="md:grid grid-cols-7 gap-4 border border-primary px-4 py-2">
+  <%= image_tag(@anime.image_url, class: "hidden md:block") %>
+  <div class="col-span-6 flex flex-col gap-4">
+    <div class="md:flex">
+      <%= @anime.title %>
+      <p class="ml-auto"><%= l(@discussion.created_at, format: :long) %></p>
+    </div>
+    <div class="md:flex h-full">
+      <p class="font-bold text-2xl text-primary-focus">
+        <%= @discussion.title %>
+      </p>
+      <%= link_to("#", class: "flex gap-2 mt-auto ml-auto hover:underline") do %>
+        <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
+        <p class="my-auto"><%= @discussion.user.name %></p>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="p-2">
+  <% @discussion.comments.each do |comment| %>
+    <%= render("chats/bubble", comment: comment) %>
+  <% end %>
+</section>
+
+<section class="max-w-2xl mx-auto py-8">
+  <%= form_with(model: [@anime, @discussion, @comment]) do |f| %>
+    <%= f.text_field(:content, class: "input input-bordered bg-gray-50 w-full", placeholder: "Input chat here (less than 100 characters).") %>
+  <% end %>
+</section>

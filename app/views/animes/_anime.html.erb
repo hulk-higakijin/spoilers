@@ -1,12 +1,7 @@
-<div id="<%= dom_id anime %>">
-  <p>
-    <strong>Title:</strong>
-    <%= anime.title %>
-  </p>
-
-  <p>
-    <strong>Image url:</strong>
-    <%= image_tag(anime.image_url) %>
-  </p>
-
+<div id="<%= dom_id anime %>" class="border border-primary p-2">
+  <%= link_to(anime_path(anime)) do %>
+    <%= image_tag(anime.image_url, class: "h-40") %>
+    <p><%= anime.title %></p>
+    <p class="text-xs">2021年</p>
+  <% end %>
 </div>
