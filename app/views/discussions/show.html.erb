@@ -9,7 +9,7 @@
       <p class="font-bold text-2xl text-primary-focus">
         <%= @discussion.title %>
       </p>
-      <%= link_to("#", class: "flex gap-2 mt-auto ml-auto hover:underline") do %>
+      <%= link_to(user_path(@discussion.user), class: "flex gap-2 mt-auto ml-auto hover:underline") do %>
         <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
         <p class="my-auto"><%= @discussion.user.name %></p>
       <% end %>
