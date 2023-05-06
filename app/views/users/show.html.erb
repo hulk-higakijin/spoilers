@@ -2,8 +2,10 @@
   <h1 class="font-bold text-2xl"><%= @user.name %></h1>
   <div class="grid md:grid-cols-4 gap-4">
     <div class="flex flex-col gap-4">
-      <div class="border border-primary p-2 w-full h-fit">
-        <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg") %>
+      <div class="border border-primary p-2 w-full avatar">
+        <div class="w-full rounded">
+          <%= image_tag(@user.display_avatar) %>
+        </div>
       </div>
       <% if current_user.id == @user.id %>
         <%= link_to("Settings", edit_user_path(@user), class: "btn btn-primary btn-wide w-full") %>

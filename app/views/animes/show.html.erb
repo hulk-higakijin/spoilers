@@ -28,7 +28,11 @@
       <div class="flex flex-col">
         <% @anime.discussions.each do |discussion| %>
           <%= link_to(anime_discussion_path(@anime, discussion), class: "border-b border-primary p-2 flex gap-2 hover:bg-primary-content") do %>
-            <%= image_tag("https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg", class: "w-12 rounded-full") %>
+            <div class="avatar">
+              <div class="w-12 rounded-full">
+                <%= image_tag(discussion.user.display_avatar) %>
+              </div>
+            </div>
             <div class="flex flex-col w-full">
               <div class="text-sm flex">
                 <p><%= discussion.user.name %></p>
