@@ -12,7 +12,7 @@
 
       <%= f.submit "Update", class: "btn btn-primary" %>
 
-      <%= link_to("退会する", "#", class: "link text-error") %>
+      <%= link_to("退会する", user_registration_path, data: { turbo_method: :delete, turbo_confirm: confirmation_message }, class: "link text-error") %>
 
     </div>
   <% end %>
