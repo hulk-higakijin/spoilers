@@ -10,6 +10,7 @@ class CommentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     content: Field::String,
+    deleted_at: Field::DateTime,
     discussion: Field::BelongsTo,
     user: Field::BelongsTo,
     created_at: Field::DateTime,
@@ -24,8 +25,8 @@ class CommentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     content
+    deleted_at
     discussion
-    user
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,6 +34,7 @@ class CommentDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     content
+    deleted_at
     discussion
     user
     created_at
@@ -44,6 +46,7 @@ class CommentDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     content
+    deleted_at
     discussion
     user
   ].freeze

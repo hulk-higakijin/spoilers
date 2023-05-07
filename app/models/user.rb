@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { in: 3..15 }
   validates :email, presence: true, uniqueness: true
 
+  after_save :delete_dependencies
+
   def display_name
     paranoia_destroyed? ? '削除済みユーザー' : name
   end
@@ -32,5 +34,13 @@ class User < ApplicationRecord
 
     def default_image
       'https://www.nmrevolution.org/blog2/wp-content/uploads/2018/10/181016-all-in-one-seo01.png'
+    end
+
+    def delete_dependencies
+      return unless paranoia_destroyed?
+
+      # 論理削除を行うので、destroy_allではなくeachを使用
+      discussions.each(&:destroy)
+      comments.each(&:destroy)
     end
 end
