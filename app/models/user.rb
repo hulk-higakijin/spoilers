@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :discussions, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :name, presence: true, length: { in: 3..15 }
+  validates :email, presence: true, uniqueness: true
+
   def display_avatar
     avatar.attached? ? avatar : default_image
   end
