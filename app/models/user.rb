@@ -31,6 +31,6 @@ class User < ApplicationRecord
     end
 
     def default_image
-      'https://pbs.twimg.com/profile_images/1639996872071974913/PPhYEW-B_400x400.jpg'
+      'https://www.nmrevolution.org/blog2/wp-content/uploads/2018/10/181016-all-in-one-seo01.png'
     end
 end

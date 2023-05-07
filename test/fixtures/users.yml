@@ -11,3 +11,8 @@ hogehoge:
   name: hogehoge
   email: hogehoge@example.com 
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+withdrawn_user:
+  name: withdrawn_user
+  email: withdrawn_user@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  deleted_at: <%= Time.current %>

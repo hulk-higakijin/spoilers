@@ -10,3 +10,11 @@ comment_third:
   user: higakijin
   content: それはそう
   discussion: discussion_first
+comment_fourth:
+  user: withdrawn_user
+  content: 僕は荒らしです
+  discussion: discussion_first
+comment_fifth:
+  user: higakijin
+  content: 帰れ
+  discussion: discussion_first
