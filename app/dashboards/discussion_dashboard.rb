@@ -11,6 +11,7 @@ class DiscussionDashboard < Administrate::BaseDashboard
     id: Field::Number,
     anime: Field::BelongsTo,
     comments: Field::HasMany,
+    deleted_at: Field::DateTime,
     title: Field::String,
     user: Field::BelongsTo,
     created_at: Field::DateTime,
@@ -26,7 +27,7 @@ class DiscussionDashboard < Administrate::BaseDashboard
     id
     anime
     comments
-    title
+    deleted_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +36,7 @@ class DiscussionDashboard < Administrate::BaseDashboard
     id
     anime
     comments
+    deleted_at
     title
     user
     created_at
@@ -47,6 +49,7 @@ class DiscussionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     anime
     comments
+    deleted_at
     title
     user
   ].freeze

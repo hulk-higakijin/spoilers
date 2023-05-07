@@ -9,7 +9,11 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    admin: Field::Boolean,
+    avatar_attachment: Field::HasOne,
+    avatar_blob: Field::HasOne,
     comments: Field::HasMany,
+    deleted_at: Field::DateTime,
     discussions: Field::HasMany,
     email: Field::String,
     encrypted_password: Field::String,
@@ -28,16 +32,17 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    comments
-    discussions
     email
+    name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    admin
     comments
+    deleted_at
     discussions
     email
     encrypted_password
@@ -53,7 +58,9 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    admin
     comments
+    deleted_at
     discussions
     email
     encrypted_password

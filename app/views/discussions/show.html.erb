@@ -22,7 +22,7 @@
 </section>
 
 <section class="p-2">
-  <% @discussion.comments.each do |comment| %>
+  <% @comments.each do |comment| %>
     <%= render("chats/bubble", comment: comment) %>
   <% end %>
 </section>

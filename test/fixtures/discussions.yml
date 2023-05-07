@@ -14,3 +14,12 @@ discussion_fourth:
   anime: gotobun_second
   title: 最終回同時視聴スレ
   user: higakijin
+discussion_fifth:
+  anime: gotobun_second
+  title: このスレは表示させるべきではない
+  user: withdrawn_user
+  deleted_at: <%= Time.current %>
+discussion_sixth:
+  anime: gotobun_first
+  title: まさかあいつだったなんて
+  user: tellstyle
