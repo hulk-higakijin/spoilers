@@ -6,3 +6,7 @@ comment_second:
   user: tellstyle
   content: 他も負けてないが
   discussion: discussion_first
+comment_third:
+  user: higakijin
+  content: それはそう
+  discussion: discussion_first

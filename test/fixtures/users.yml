@@ -7,3 +7,7 @@ tellstyle:
   name: tellstyle
   email: tellstyle@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+hogehoge:
+  name: hogehoge
+  email: hogehoge@example.com 
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

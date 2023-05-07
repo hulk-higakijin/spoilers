@@ -173,6 +173,8 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.23.0)
+    paranoia (2.6.1)
+      activerecord (>= 5.1, < 7.1)
     parser (3.2.2.1)
       ast (~> 2.4.1)
     pg (1.5.3)
@@ -328,6 +330,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari
+  paranoia
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
