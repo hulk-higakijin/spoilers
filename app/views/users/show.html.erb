@@ -12,18 +12,20 @@
       <% end %>
     </div>
 
-    <div class="col-span-3">
-      <div class="flex">
-        <%= link_to("スレッド", user_path(@user, display: "thread"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_discussions?}") %>
-        <%= link_to("コメント", user_path(@user, display: "comment"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_comments?}") %>
+    <% unless @user.deleted? %>
+      <div class="col-span-3">
+        <div class="flex">
+          <%= link_to("スレッド", user_path(@user, display: "thread"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_discussions?}") %>
+          <%= link_to("コメント", user_path(@user, display: "comment"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_comments?}") %>
+        </div>
+        <div class="border border-primary">
+          <% if display_discussions? %>
+            <%= render("discussions/items", discussions: @discussions) %>
+          <% elsif display_comments? %>
+            <%= render("comments/items", comments: @comments) %>
+          <% end %>
+        </div>
       </div>
-      <div class="border border-primary">
-        <% if display_discussions? %>
-          <%= render("discussions/items", discussions: @discussions) %>
-        <% elsif display_comments? %>
-          <%= render("comments/items", comments: @comments) %>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

@@ -67,7 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_07_021616) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["anime_id"], name: "index_discussions_on_anime_id"
+    t.index ["deleted_at"], name: "index_discussions_on_deleted_at"
     t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
