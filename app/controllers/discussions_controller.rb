@@ -4,6 +4,7 @@ class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show]
 
   def show
+    @comments = @discussion.comments.with_deleted.order(created_at: :asc)
     @comment = current_user.comments.new(discussion: @discussion)
   end
 

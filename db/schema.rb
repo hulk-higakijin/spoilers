@@ -55,6 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_07_021616) do
     t.bigint "discussion_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["discussion_id"], name: "index_comments_on_discussion_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
