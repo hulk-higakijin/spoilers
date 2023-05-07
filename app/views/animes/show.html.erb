@@ -1,7 +1,9 @@
 <section class="flex flex-col gap-4">
-  <h1 class="headline">
+  <div class="headline flex">
     <%= @anime.title %>
-  </h1>
+
+    <%= link_to("New Discussion", new_anime_discussion_path(@anime), class: "btn btn-primary btn-sm text-sm  ml-auto") %>
+  </div>
 
   <div class="flex flex-col md:grid grid-cols-5 gap-4">
     <div class="col-span-2 border border-primary p-4">
@@ -26,7 +28,7 @@
 
     <div class="col-span-3 border border-primary">
       <div class="flex flex-col">
-        <% @anime.discussions.each do |discussion| %>
+        <% @discussions.each do |discussion| %>
           <%= link_to(anime_discussion_path(@anime, discussion), class: "border-b border-primary p-2 flex gap-2 hover:bg-primary-content") do %>
             <div class="avatar">
               <div class="w-12 rounded-full">
