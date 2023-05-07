@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users
+  resources :users, only: %i[show edit update]
   resources :animes do
     resources :discussions, only: [:show] do
       resources :comments, only: [:create]

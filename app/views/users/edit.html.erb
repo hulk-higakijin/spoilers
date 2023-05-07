@@ -1,0 +1,19 @@
+<div class="max-w-2xl mx-auto">
+  <%= form_with(model: @user) do |f| %>
+    <div class="flex flex-col gap-4">
+      <%= f.label(:name) %>
+      <%= f.text_field(:name, class: "input input-bordered w-full") %>
+
+      <%= f.label(:email) %>
+      <%= f.email_field(:email, class: "input input-bordered w-full") %>
+
+      <%= f.label(:avatar) %>
+      <%= f.file_field(:avatar, class: "file-input file-input-bordered w-full") %>
+
+      <%= f.submit "Update", class: "btn btn-primary" %>
+
+      <%= link_to("退会する", user_registration_path, data: { turbo_method: :delete, turbo_confirm: confirmation_message }, class: "link text-error") %>
+
+    </div>
+  <% end %>
+</div>
