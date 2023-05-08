@@ -1,8 +1,10 @@
 <section class="md:grid grid-cols-7 gap-4 border border-primary px-4 py-2">
-  <%= image_tag(@anime.image_url, class: "hidden md:block") %>
+  <%= link_to(anime_path(@anime)) do %>
+    <%= image_tag(@anime.image_url, class: "hidden md:block") %>
+  <% end %>
   <div class="col-span-6 flex flex-col gap-4">
     <div class="md:flex">
-      <%= @anime.title %>
+      <%= link_to(@anime.title, anime_path(@anime), class: "hover:link") %>
       <p class="ml-auto"><%= l(@discussion.created_at, format: :long) %></p>
     </div>
     <div class="md:flex">
