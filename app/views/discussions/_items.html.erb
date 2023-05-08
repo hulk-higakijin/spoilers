@@ -1,7 +1,7 @@
 <div>
   <% discussions.each do |discussion| %>
     <%= link_to(anime_discussion_path(discussion.anime, discussion), class: "grid grid-cols-7 gap-4 border-b border-primary p-2 hover:bg-primary-content") do %>
-      <%= image_tag(discussion.anime.image_url) %>
+      <%= image_tag(discussion.anime.display_image_url) %>
       <div class="col-span-6 flex">
         <p class="font-bold my-auto text-primary-focus"><%= discussion.title %></p>
         <div class="ml-auto flex flex-col">
