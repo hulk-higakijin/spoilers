@@ -1,8 +1,11 @@
 <section class="flex flex-col gap-4">
-  <div class="headline flex">
+  <div class="headline md:flex">
     <%= @anime.title %>
 
-    <%= link_to("New Discussion", new_anime_discussion_path(@anime), class: "btn btn-primary btn-sm text-sm  ml-auto") %>
+    <%= link_to(new_anime_discussion_path(@anime), class: "btn btn-primary btn-sm text-sm ml-auto") do %>
+      <i class="fa-solid fa-plus pr-2"></i>
+      New Discussion
+    <% end %>
   </div>
 
   <div class="flex flex-col md:grid grid-cols-5 gap-4">
