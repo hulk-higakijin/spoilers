@@ -18,6 +18,7 @@ class DiscussionsController < ApplicationController
     if @discussion.save
       redirect_to anime_discussion_path(@anime, @discussion)
     else
+      flash.now[:alert] = @discussion.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
