@@ -1,6 +1,16 @@
 gotobun_first:
   title: 五等分の花嫁
   image_url: https://m.media-amazon.com/images/I/81WmUqo0OaL._AC_UL480_FMwebp_QL65_.jpg
+  web_url: http://www.tbs.co.jp/anime/5hanayome/
+  sex: man
+  sequel: 1
+  year: 2019
+  season: winter
 gotobun_second:
   title: 五等分の花嫁∬
   image_url: https://m.media-amazon.com/images/I/81WfUXJkTaL._AC_UL480_FMwebp_QL65_.jpg
+  web_url: https://www.tbs.co.jp/anime/5hanayome/
+  sex: man
+  sequel: 2
+  year: 2021
+  season: winter
