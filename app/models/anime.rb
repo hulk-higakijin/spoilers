@@ -13,7 +13,7 @@ class Anime < ApplicationRecord
   validates :web_url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/, allow_nil: true
 
   enum sex: { men: 0, women: 1, other: 2 }
-  enum season: { spring: 0, summer: 1, fall: 2, winter: 3 }
+  enum season: { winter: 0, spring: 1, summer: 2, fall: 3 }
 
   def display_image_url
     image_url.presence || default_image_url

@@ -2,6 +2,8 @@
   <h1 class="headline">全てのアニメ</h1>
 
   <div id="animes" class="grid grid-cols-2 md:grid-cols-5 gap-4">
-    <%= render @animes %>
+    <%= render(@animes) %>
   </div>
+
+  <%= paginate(@animes) %>
 </section>

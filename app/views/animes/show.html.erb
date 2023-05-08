@@ -9,7 +9,8 @@
     <div class="col-span-2 border border-primary p-4">
       <%= image_tag(@anime.display_image_url) %>
       <div class="p-2">
-        <p class="badge badge-outline">2021春</p>
+        <p class="badge badge-outline"><%= @anime.year %></p>
+        <p class="badge badge-outline"><%= @anime.season %></p>
       </div>
     </div>
 

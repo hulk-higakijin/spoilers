@@ -5,7 +5,10 @@
     </figure>
     <div class="card-body">
       <h2 class="font-bold h-16"><%= anime.title %></h2>
-      <p class="badge badge-outline"><%= anime.year %></p>
+      <div>
+        <p class="badge badge-outline badge-sm"><%= anime.year %></p>
+        <p class="badge badge-outline badge-sm"><%= anime.season %></p>
+      </div>
     </div>
   </div>
 <% end %>
