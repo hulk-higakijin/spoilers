@@ -6,7 +6,10 @@
         <p class="font-bold my-auto text-primary-focus"><%= discussion.title %></p>
         <div class="ml-auto flex flex-col">
           <p><%= l(discussion.created_at, format: :long) %></p>
-          <p class="ml-auto mt-auto">コメント：<%= discussion.comments.with_deleted.count %>件</p>
+          <p class="ml-auto mt-auto">
+            <i class="fa-regular fa-comment"></i>
+            <%= discussion.comments.with_deleted.count %>
+          </p>
         </div>
       </div>
     <% end %>

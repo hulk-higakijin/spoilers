@@ -14,7 +14,9 @@
     </div>
     <div class="md:flex mt-auto">
       <% if @discussion.user.id == current_user.id %>
-        <%= link_to("Edit", edit_anime_discussion_path(@anime, @discussion), class: "btn btn-primary btn-sm my-auto") %> 
+        <%= link_to(edit_anime_discussion_path(@anime, @discussion), class: "btn btn-primary btn-sm my-auto") do %>
+          <i class="fa-solid fa-pen"></i>
+        <% end %>
       <% end %>
       <%= link_to(user_path(@discussion.user), class: "flex gap-2 ml-auto hover:underline") do %>
         <div class="avatar">

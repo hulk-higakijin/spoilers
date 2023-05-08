@@ -8,22 +8,32 @@
         </div>
       </div>
       <% if current_user.id == @user.id %>
-        <%= link_to("Settings", edit_user_path(@user), class: "btn btn-primary btn-wide w-full") %>
+        <%= link_to(edit_user_path(@user), class: "btn btn-primary btn-wide w-full") do %>
+          <i class="fa-solid fa-gear pr-2"></i>
+          Settings
+        <% end %>
       <% end %>
     </div>
 
     <% unless @user.deleted? %>
       <div class="col-span-3">
         <div class="flex">
-          <%= link_to("スレッド", user_path(@user, display: "thread"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_discussions?}") %>
-          <%= link_to("コメント", user_path(@user, display: "comment"), class: "px-4 py-2 border border-primary font-bold #{'bg-primary-content' if display_comments?}") %>
+          <%= link_to(user_path(@user, display: "thread")) do %>
+            <div class="px-4 py-2 border border-primary font-bold <%= 'bg-primary-content' if display_discussions? %>">
+              <i class="fa-solid fa-bullhorn pr-1"></i>
+              スレッド
+            </div>
+          <% end %>
+          <%= link_to(user_path(@user, display: "comment")) do %>
+            <div class="px-4 py-2 border border-primary font-bold <%= 'bg-primary-content' if display_comments? %>">
+                <i class="fa-regular fa-comment"></i>
+                コメント
+            </div>
+          <% end %>
         </div>
         <div class="border border-primary">
-          <% if display_discussions? %>
-            <%= render("discussions/items", discussions: @discussions) %>
-          <% elsif display_comments? %>
-            <%= render("comments/items", comments: @comments) %>
-          <% end %>
+          <%= render("discussions/items", discussions: @discussions) if display_discussions? %>
+          <%= render("comments/items", comments: @comments) if display_comments? %>
         </div>
       </div>
     <% end %>
