@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_07_021616) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_08_013155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_07_021616) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title_first"
+    t.string "title_second"
+    t.string "title_third"
+    t.string "title_en"
+    t.string "web_url"
+    t.string "twitter_account"
+    t.string "twitter_hash_tag"
+    t.integer "sex"
+    t.integer "sequel", default: 1
+    t.integer "year"
+    t.integer "season"
   end
 
   create_table "comments", force: :cascade do |t|

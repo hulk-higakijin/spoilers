@@ -1,7 +1,14 @@
-<div id="<%= dom_id anime %>" class="border border-primary p-2">
-  <%= link_to(anime_path(anime)) do %>
-    <%= image_tag(anime.image_url, class: "h-40") %>
-    <p><%= anime.title %></p>
-    <p class="text-xs">2021年</p>
-  <% end %>
-</div>
+<%= link_to(anime_path(anime)) do %>
+  <div class="card card-compact bg-base-100 shadow border border-primary-content rounded-md">
+    <figure>
+      <%= image_tag(anime.display_image_url, class: "h-40") %>
+    </figure>
+    <div class="card-body">
+      <h2 class="font-bold h-16"><%= anime.title %></h2>
+      <div>
+        <p class="badge badge-outline badge-sm"><%= anime.year %></p>
+        <p class="badge badge-outline badge-sm"><%= anime.season %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
