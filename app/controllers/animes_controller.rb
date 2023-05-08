@@ -10,7 +10,11 @@ class AnimesController < ApplicationController
   end
 
   def show
-    @discussions = @anime.discussions.order(created_at: :desc)
+    @discussions = @anime
+      .discussions
+      .order(created_at: :desc)
+      .page(params[:page])
+      .per(10)
   end
 
   private

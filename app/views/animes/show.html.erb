@@ -6,8 +6,14 @@
   </div>
 
   <div class="flex flex-col md:grid grid-cols-5 gap-4">
-    <div class="col-span-2 border border-primary p-4">
+    <div class="col-span-2 border border-primary p-4 h-fit">
       <%= image_tag(@anime.display_image_url) %>
+      <div class="p-2">
+        <p><%= link_to("公式サイト", @anime.web_url, class: "hover:link text-primary", target: "_blank") if @anime.web_url.present? %></p>
+        <p><%= link_to("Twitter", "https://twitter.com/#{@anime.twitter_account}", class: "hover:link text-primary", target: "_blank") if @anime.twitter_account.present? %></p>
+        <p><%= link_to("##{@anime.twitter_hash_tag}", "https://twitter.com/hashtag/#{@anime.twitter_hash_tag}", class: "hover:link text-primary", target: "_blank") if @anime.twitter_hash_tag.present? %></p>
+        <p></p>
+      </div>
       <div class="p-2">
         <p class="badge badge-outline"><%= @anime.year %></p>
         <p class="badge badge-outline"><%= @anime.season %></p>
@@ -33,6 +39,7 @@
           <% end %>
         <% end %>
       </div>
+      <%= paginate(@discussions) %>
     </div>
   </div>
 </section>
