@@ -1,15 +1,22 @@
 <section class="md:grid grid-cols-7 gap-4 border border-primary px-4 py-2">
-  <%= image_tag(@anime.image_url, class: "hidden md:block") %>
+  <%= link_to(anime_path(@anime)) do %>
+    <%= image_tag(@anime.image_url, class: "hidden md:block") %>
+  <% end %>
   <div class="col-span-6 flex flex-col gap-4">
     <div class="md:flex">
-      <%= @anime.title %>
+      <%= link_to(@anime.title, anime_path(@anime), class: "hover:link") %>
       <p class="ml-auto"><%= l(@discussion.created_at, format: :long) %></p>
     </div>
-    <div class="md:flex h-full">
+    <div class="md:flex">
       <p class="font-bold text-2xl text-primary-focus">
         <%= @discussion.title %>
       </p>
-      <%= link_to(user_path(@discussion.user), class: "flex gap-2 mt-auto ml-auto hover:underline") do %>
+    </div>
+    <div class="md:flex mt-auto">
+      <% if @discussion.user.id == current_user.id %>
+        <%= link_to("Edit", edit_anime_discussion_path(@anime, @discussion), class: "btn btn-primary btn-sm my-auto") %> 
+      <% end %>
+      <%= link_to(user_path(@discussion.user), class: "flex gap-2 ml-auto hover:underline") do %>
         <div class="avatar">
           <div class="avatar w-12 rounded-full">
             <%= image_tag(@discussion.user.display_avatar, class: "w-12")%>

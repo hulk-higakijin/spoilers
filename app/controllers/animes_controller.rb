@@ -5,7 +5,9 @@ class AnimesController < ApplicationController
     @animes = Anime.all
   end
 
-  def show; end
+  def show
+    @discussions = @anime.discussions.order(created_at: :desc)
+  end
 
   private
 
