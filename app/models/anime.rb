@@ -9,8 +9,8 @@ class Anime < ApplicationRecord
   validates :sex, presence: true
   validates :year, presence: true, numericality: { in: 1900..2100 }
   validates :season, presence: true
-  validates :image_url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
-  validates :web_url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
+  validates :image_url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/, allow_nil: true
+  validates :web_url, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/, allow_nil: true
 
   enum sex: { men: 0, women: 1, other: 2 }
   enum season: { spring: 0, summer: 1, fall: 2, winter: 3 }
