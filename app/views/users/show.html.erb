@@ -32,11 +32,8 @@
           <% end %>
         </div>
         <div class="border border-primary">
-          <% if display_discussions? %>
-            <%= render("discussions/items", discussions: @discussions) %>
-          <% elsif display_comments? %>
-            <%= render("comments/items", comments: @comments) %>
-          <% end %>
+          <%= render("discussions/items", discussions: @discussions) if display_discussions? %>
+          <%= render("comments/items", comments: @comments) if display_comments? %>
         </div>
       </div>
     <% end %>
