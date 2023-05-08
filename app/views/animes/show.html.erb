@@ -6,7 +6,7 @@
   </div>
 
   <div class="flex flex-col md:grid grid-cols-5 gap-4">
-    <div class="col-span-2 border border-primary p-4">
+    <div class="col-span-2 border border-primary p-4 h-fit">
       <%= image_tag(@anime.display_image_url) %>
       <div class="p-2">
         <p class="badge badge-outline"><%= @anime.year %></p>
@@ -33,6 +33,7 @@
           <% end %>
         <% end %>
       </div>
+      <%= paginate(@discussions) %>
     </div>
   </div>
 </section>
