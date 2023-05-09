@@ -5,11 +5,13 @@ ruby '3.1.3'
 
 gem 'administrate'
 gem 'any_login'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'brakeman'
 gem 'bundler-audit'
 gem 'cssbundling-rails'
 gem 'devise'
+gem 'dotenv'
 gem 'image_processing'
 gem 'jbuilder'
 gem 'jsbundling-rails'
