@@ -2,6 +2,7 @@ class DiscussionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_anime
   before_action :set_discussion, only: %i[show edit update]
+  before_action :convert_archived_and_archived_at, only: [:update]
   before_action :need_permission, only: %i[edit update]
 
   def show
@@ -46,7 +47,17 @@ class DiscussionsController < ApplicationController
     end
 
     def discussion_params
-      params.require(:discussion).permit(:title).merge(anime_id: @anime.id)
+      params.require(:discussion).permit(:title, :archived, :archived_at).merge(anime_id: @anime.id)
+    end
+
+    def convert_archived_and_archived_at
+      case discussion_params[:archived]
+      when 'true'
+        params[:discussion][:archived_at] = Time.current
+      when 'false'
+        params[:discussion][:archived_at] = nil
+      end
+      params[:discussion].delete(:archived)
     end
 
     def need_permission
