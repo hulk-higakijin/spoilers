@@ -15,6 +15,7 @@ def zero_to_one(sequel)
 end
 
 namespace :anime do
+  desc 'Import anime list from CSV'
   task import: :environment do
     CSV.foreach('db/fixtures/csv/anime_list.csv', headers: true).each_slice(batch_size) do |csv_batch|
       records = csv_batch.map do |row|
