@@ -2,8 +2,8 @@ class AnimesController < ApplicationController
   before_action :set_anime, only: %i[show]
 
   def index
-    @animes = Anime
-      .all
+    @animes = @q
+      .result(distinct: true)
       .order([year: :desc, season: :desc])
       .page(params[:page])
       .per(25)

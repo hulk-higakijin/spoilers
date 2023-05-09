@@ -15,6 +15,10 @@ class Anime < ApplicationRecord
   enum sex: { men: 0, women: 1, other: 2 }
   enum season: { winter: 0, spring: 1, summer: 2, fall: 3 }
 
+  SEARCHABLE_ATTRIBUTES = %w[
+    title title_first title_second title_third title_en twitter_hash_tag twitter_account
+  ].freeze
+
   def display_image_url
     image_url.presence || default_image_url
   end
@@ -26,5 +30,13 @@ class Anime < ApplicationRecord
   def image_url_from
     return 'unknown' if image_url.blank?
     return 'Amazon Prime Video' if image_url.include? 'amazon'
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    SEARCHABLE_ATTRIBUTES
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[discussions]
   end
 end
