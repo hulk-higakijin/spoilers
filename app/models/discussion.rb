@@ -7,4 +7,8 @@ class Discussion < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 30 }
+
+  def archived?
+    archived_at.present?
+  end
 end
