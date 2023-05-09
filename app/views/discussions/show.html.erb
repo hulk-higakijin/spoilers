@@ -43,7 +43,12 @@
 
 <section class="max-w-2xl mx-auto py-8">
   <% if @discussion.archived? %>
-    <p>このスレッドはアーカイブされました。</p>
+    <div class="alert">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>このスレッドはアーカイブされました</span>
+      </div>
+    </div>
   <% else %>
     <%= form_with(model: [@anime, @discussion, @comment]) do |f| %>
       <%= f.text_field(:content, class: "input input-bordered bg-gray-50 w-full", placeholder: "Input chat here (less than 100 characters).") %>
