@@ -33,6 +33,11 @@ RSpec.describe "Devise::Sessions", type: :request do
         post user_session_path
         expect(response.body).to include("Eメールまたはパスワードが違います。")
       end
+
+      it "render new template" do
+        post user_session_path
+        expect(response).to render_template(:new)
+      end
     end
   end
 end
